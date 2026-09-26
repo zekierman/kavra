@@ -3,6 +3,17 @@
 Plain markdown, rendered in Obsidian. Every agent reads and writes the same files, so keep to these
 formats — they are how a session started in one tool resumes in another.
 
+## Rules that keep shared files intact
+
+- **Re-read a file right before editing it** — another agent may have written since. Edit sections in
+  place; don't rewrite whole files.
+- **Headings are in the learner's language, chosen once.** When creating a course, translate the
+  section headings below into the learner's language (table at the end). After that, **reuse the exact
+  headings already in the file** — find a section by its role, never add a second section with the
+  same role in another language or wording.
+- Keep the table columns as they are; other agents parse them.
+- Get today's date from the system before any date math.
+
 ## Layout
 
 ```
@@ -27,9 +38,12 @@ instructor: <name>
 exams:
   - {name: Midterm, date: 2026-11-10, weight: 40}
   - {name: Final, date: 2027-01-12, weight: 60}
-sources:
-  - path/to/slides/
-  - path/to/past-exams/
+sources:            # set by the learner; listed in priority order (first wins a conflict)
+  - {type: slides, where: path/to/slides/, exam: yes}
+  - {type: book, where: "Weiss, Data Structures, ch. 3", exam: yes}
+  - {type: video, where: "https://youtube.com/playlist?list=…", exam: no, note: "no transcript; use my notes"}
+  - {type: notes, where: path/to/my-notes/, exam: yes}
+  - {type: past-exams, where: path/to/past-exams/, exam: yes}
 ---
 
 # Data Structures
@@ -40,8 +54,15 @@ sources:
 | [linked-lists](linked-lists.md) | Midterm | high | shaky | 2026-09-27 |
 | [stacks](stacks.md) | Midterm | medium | not started | |
 
-Status is one of: not started · shaky · solid · exam-ready. Weight (low / medium / high, or points)
-comes from exam intel. Use standard markdown links — Obsidian resolves them and so can every agent.
+Status, with the evidence each one needs:
+- **not started**
+- **shaky** — taught, but some check questions missed or not yet produced unaided.
+- **solid** — every node checked, at least one produce task (explain / trace / code) done, and a
+  transfer problem solved without help.
+- **exam-ready** — solid, plus at least one successful spaced review and exam-style questions
+  answered under exam conditions.
+
+Weight (low / medium / high, or points) comes from exam intel. Use standard markdown links — Obsidian resolves them and so can every agent.
 
 ## Exam intel
 - Format: <classic / multiple choice / code on paper / mixed>, <duration>
@@ -65,7 +86,7 @@ Types: gap (didn't know) · misconception (knew it wrong) · misread · careless
 ---
 course: Data Structures
 topic: Linked lists
-sources: [slides week 3 p.4-22]
+sources: [slides week 3 p.4-22, book ch. 3.2]
 ---
 
 # Linked lists
@@ -114,3 +135,19 @@ and set `Next` = +60 days.
   duplicate (the error log keeps the history).
 
 A review is **due** when `Next` ≤ today.
+
+## Headings in Turkish
+
+Use these when `learner.md` says Turkish; for other languages, translate once and keep them stable.
+
+| Role | English | Türkçe |
+| --- | --- | --- |
+| topic map | Topic map | Konu haritası |
+| exam intel | Exam intel | Sınav bilgisi |
+| error log | Error log | Hata günlüğü |
+| review queue | Review queue | Tekrar kuyruğu |
+| dependency map | Map | Harita |
+| frontier | Frontier | Neredeyim |
+| session | Session YYYY-MM-DD | Oturum YYYY-MM-DD |
+| review table columns | Topic / Prompt / Next / Step | Konu / Soru / Sonraki / Adım |
+

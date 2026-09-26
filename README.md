@@ -1,86 +1,106 @@
 # tutor
 
-An agent skill that teaches university courses for two goals at once: **the top grade on the exam**
-and **understanding that outlasts it**. Works with Claude Code, Codex, and Antigravity; uses an
-Obsidian vault as the textbook.
+Üniversite dersleri için bir yapay zekâ ajanı skill'i. İki hedefi var: **sınavdan alınabilecek en
+yüksek not** ve **sınavdan sonra da kalan gerçek kavrayış**. Claude Code, Codex ve Antigravity ile
+çalışır. Ders kitabı olarak Obsidian kasanı kullanır.
 
-*[Türkçe açıklama aşağıda.](#türkçe)*
+> *English: an agent skill that tutors university courses for the top grade and real understanding.
+> Instructions are in English; this README is in Turkish.*
 
-## What it does
+## Ne yapar?
 
-- **Probe** — graded quizzes find exactly where your knowledge ends (a floor you get right, a ceiling
-  you miss).
-- **Plan** — the topic becomes a small dependency map: face-value truths at the top, your goal at the
-  bottom. You approve it before teaching starts.
-- **Teach** — node by node: why we need it → build it → connect it → check it. Socratic when you can
-  reason your way there, narrated when you can't.
-- **Exam mode** — reads the instructor's slides and past exams, triages topics by weight × weakness,
-  writes new questions in the instructor's style, grades open answers like the instructor would.
-- **Spaced review** — every topic leaves recall prompts with due dates; due reviews come first each
-  session.
-- **Everything lands in your vault** — one markdown file per topic, written live, with mermaid maps
-  and LaTeX. Start in Claude Code, continue in Codex: the lesson file is the handoff.
+- **Önce hedefi sorar, sonra yoklar.** Ne istediğini netleştirir (tüm konu mu, yarınki quiz mi?),
+  sonra puanlı sorularla bilginin tam nerede bittiğini bulur.
+- **Plan çıkarır, onayını bekler.** Konuyu küçük bir bağımlılık haritasına döker: en üstte
+  tartışmasız temel doğrular, en altta hedefin. Sen onaylamadan anlatmaya başlamaz.
+- **Adım adım öğretir.** Her adımda: neden gerekli → kur → önceki adıma bağla → tek soruyla
+  kontrol et. Önce sen denersin. Cevabı hazır vermez, ipucu merdiveniyle ilerler.
+- **Takılınca anlatım biçimini değiştirir.** İki denemede oturmayan bir şeyi aynı cümlelerle
+  tekrar etmez. Benzetmeye, kutu tablosuna, çizime ya da görselleştirme aracına geçer.
+- **Kaynakları sen seçersin.** Slayt, kitap, ders videosu, kendi notların, çıkmış sorular. Hangisinden
+  sınav çıktığını ve çelişkide hangisinin kazanacağını sen belirlersin. Kaynağın yerini gösterir:
+  slayt no, sayfa, video dakikası.
+- **Sınav modu.** Konuları ağırlık × zayıflık sırasına koyar ve öneri olarak sunar, karar senin.
+  Hocanın tarzında yeni sorular yazar, açık uçlu cevabını hoca gibi sıkı puanlar.
+- **Aralıklı tekrar.** Her konu tarihli tekrar soruları bırakır (1-3-7-14-30 gün). Her oturum
+  vadesi gelen tekrarla başlar.
+- **Her şey kasana yazılır.** Konu başına bir markdown dosyası; harita, sorular, cevapların,
+  nerede kaldığın. Claude Code'da başlayıp Codex'te devam edebilirsin, devir bu dosyalarla olur.
 
-## Install
+## Kurulum
 
-The skill is the `skills/tutor/` folder. Put it where your agent looks for skills:
+Skill, `skills/tutor/` klasörüdür. Ajanının skill aradığı yere kopyala. En iyisi Obsidian kasanın
+içine koymak: böylece yalnız ders çalışırken devreye girer.
 
-| Agent | Global | Per project (e.g. your vault) |
+| Ajan | Kasa içinde (önerilen) | Global |
 | --- | --- | --- |
-| Claude Code | `~/.claude/skills/tutor/` | `.claude/skills/tutor/` |
-| Codex | `~/.codex/skills/tutor/` | `.agents/skills/tutor/` |
-| Antigravity | `~/.gemini/config/skills/tutor/` | `.agents/skills/tutor/` |
+| Claude Code | `.claude/skills/tutor/` | `~/.claude/skills/tutor/` |
+| Codex | `.agents/skills/tutor/` | `~/.codex/skills/tutor/` |
+| Antigravity | `.agents/skills/tutor/` | `~/.gemini/config/skills/tutor/` |
 
 ```bash
 git clone https://github.com/zekierman/tutor
-cp -r tutor/skills/tutor ~/.claude/skills/        # repeat for the others you use
+cd <obsidian-kasan>
+mkdir -p .claude/skills .agents/skills
+cp -r <klon>/skills/tutor .claude/skills/
+cp -r <klon>/skills/tutor .agents/skills/     # Codex + Antigravity ortak
 ```
 
-Then open your agent inside your Obsidian vault and say *"let's study <topic> for <course>"*. On first
-run it asks where your courses live and creates `learner.md` — your profile. Edit it: how you learn,
-what you hate, your courses.
+Sonra ajanını kasanın içinde aç ve "Veri Yapıları'ndan bağlı listeyi çalışalım" de. İlk seferde
+derslerin nerede duracağını sorar ve `learner.md` profilini oluşturur: nasıl öğrendiğin, neyi
+sevmediğin, hangi dilde çalıştığın. Bu dosya senin; istediğin gibi düzenle, skill her oturumda onu
+okur ve varsayılanlarının önüne koyar.
 
-## Layout in your vault
+## Kasanda nasıl görünür
 
 ```
-Courses/
-├── learner.md          # your profile
-└── Data Structures/
-    ├── _course.md      # exams, sources, topic map, exam intel, error log
-    └── linked-lists.md # map, frontier, sessions, review table
+Dersler/
+├── learner.md            # profilin
+└── Veri Yapıları/
+    ├── _course.md        # kaynaklar, sınavlar, konu haritası, hata günlüğü, tekrar kuyruğu
+    └── bagli-liste.md    # harita, neredeyim, oturumlar
 ```
 
-Obsidian renders it: open the lesson file next to the terminal. The terminal is the classroom,
-Obsidian is the textbook. Works on a tablet too if your vault syncs.
+Terminal sınıf, Obsidian ders kitabı. Ders dosyasını terminalin yanında aç; harita, LaTeX ve
+ilerleme orada canlı dolar. Kasan senkronluysa tablette de okursun. Çalışma kağıdı istersen
+cevaplar katlanır kutularda gizli gelir, kalemle çözüp kendini kontrol edersin.
 
-## Credits
+## Neden böyle?
 
-Teaching principles (unconditional truths first; "how could I have discovered this?"; probe → plan →
-teach) are adapted from [amosblomqvist/learn](https://github.com/amosblomqvist/learn), a pi
-configuration. This is an independent rewrite for Claude Code / Codex / Antigravity with an exam
-focus.
+Her kural bir araştırma bulgusuna dayanır:
 
-## License
+- **Kendini test etmek ve tekrarı zamana yaymak**, incelenen on çalışma tekniği arasında en etkili
+  iki teknik çıktı. Altını çizmek ve tekrar okumak ise düşük etkili.
+  ([Dunlosky vd., 2013](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266))
+- **Cevabı veren yapay zekâ öğrenmeyi bozar.** Yaklaşık 1000 lise öğrencisiyle yapılan deneyde düz
+  GPT-4 alıştırma puanlarını yükseltti ama yapay zekâ kaldırılınca öğrenciler daha kötü yaptı. Cevap
+  yerine ipucu veren sürüm bu zararı hafifletti. Bu yüzden skill cevap değil ipucu verir.
+  ([Bastani vd., PNAS 2025](https://www.pnas.org/doi/10.1073/pnas.2422633122))
+- **İyi tasarlanmış yapay zekâ öğretmeni sınıfı geçebilir.** Harvard'daki deneyde kısa cevaplar
+  veren, her seferinde tek adım açan, önce öğrenciye denettiren ve doğru çözümleri önceden verilmiş
+  bir öğretmen, aktif öğrenme dersinin iki katından fazla kazanım sağladı. Bu skill aynı ilkeleri
+  izler: kısa mesaj, tek adım, önce sen dene, sorudan önce doğru cevabı kaynaktan doğrula.
+  ([Kestin vd., Scientific Reports 2025](https://www.nature.com/articles/s41598-025-97652-6))
+- **Önce denemek, yanılsan bile işe yarar.** Bilmediğin bir şeyi tahmin etmeye çalışıp ardından
+  düzeltme almak, sadece okumaktan daha iyi öğretir. Emin olduğun bir yanlışın düzeltilmesi ise
+  özellikle akılda kalır.
+  ([hata yoluyla öğrenme üzerine derleme](https://link.springer.com/article/10.3758/s13423-021-02022-8),
+  [hiperdüzeltme etkisi](https://www.researchgate.net/publication/11641193_Errors_Committed_with_High_Confidence_Are_Hypercorrected))
+- **Çözümlü örnek, sonra kademeli geri çekme.** Yeni başlayan biri çözümlü örnekten daha hızlı
+  öğrenir. Ustalaştıkça bu etki tersine döner, bu yüzden adımlar yavaş yavaş boş bırakılır.
+  ([çözümlü örnek etkisi](https://en.wikipedia.org/wiki/Worked-example_effect),
+  [uzmanlığın ters etkisi](https://en.wikipedia.org/wiki/Expertise_reversal_effect))
+- **Aktif öğrenme, bilişsel yük, öğrenciye uyum, merak, üstbiliş.** Google'ın eğitim modeli LearnLM
+  de aynı beş ilkeyi izliyor.
+  ([Google](https://blog.google/products-and-platforms/products/education/google-learnlm-gemini-generative-ai/))
+
+## Teşekkür
+
+Öğretme ilkeleri ("önce koşulsuz doğrular", "bunu ben nasıl keşfederdim?", yokla → planla → öğret)
+[amosblomqvist/learn](https://github.com/amosblomqvist/learn) projesinden uyarlandı. O proje `pi`
+ajanı için yazılmış; bu, Claude Code, Codex ve Antigravity için sınav odaklı, bağımsız bir yeniden
+yazım.
+
+## Lisans
 
 MIT
-
----
-
-## Türkçe
-
-Üniversite dersleri için bir ajan skill'i. İki hedef: **sınavdan en yüksek not** ve **sınavdan sonra
-da kalan gerçek kavrayış**. Claude Code, Codex ve Antigravity ile çalışır; ders kitabı olarak Obsidian
-kasanı kullanır.
-
-- **Yokla:** Puanlı sorularla bilginin tam nerede bittiğini bulur.
-- **Planla:** Konuyu küçük bir bağımlılık haritasına çevirir; sen onaylamadan anlatmaya başlamaz.
-- **Öğret:** Düğüm düğüm ilerler: neden gerekli → kur → bağla → kontrol et.
-- **Sınav modu:** Hocanın slaytlarını ve çıkmış soruları okur, konuları ağırlık × zayıflık sırasına
-  koyar, hocanın tarzında yeni sorular yazar, açık uçlu cevabını hoca gibi puanlar.
-- **Aralıklı tekrar:** Her konu tarihli tekrar soruları bırakır; her oturum vadesi gelen tekrarla
-  başlar.
-- **Her şey kasana yazılır:** Konu başına bir markdown dosyası, canlı yazılır. Claude Code'da başlayıp
-  Codex'te devam edebilirsin; devir ders dosyasıyla olur.
-
-Kurulum için yukarıdaki tabloya bak. İlk çalıştırmada `learner.md` profilini oluşturur ve dersi
-senin dilinde anlatır.

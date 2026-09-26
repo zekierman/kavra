@@ -4,6 +4,13 @@ A quiz has a right answer. An open question ("what do you want to focus on?") do
 normally, never as a quiz. A Socratic "try to discover it" question with a definite answer *is* a
 quiz; grading it is how you learn exactly where their model goes wrong.
 
+Three rules before any question:
+- **Know the answer from the sources first.** Work out and verify the correct answer (and why each
+  distractor is wrong) before asking — a quiz with a wrong key teaches the wrong thing with authority.
+- **One question per message**, then stop and wait.
+- **Mix formats.** Multiple choice maps the edge quickly; open questions (explain, trace, write code,
+  compute) are what exams actually ask. Use both in every topic.
+
 ## Writing options that don't leak the answer
 
 Checking for evenness after the fact doesn't work — the tell is baked in while writing. Build the
@@ -54,7 +61,9 @@ After they answer, in one short block:
   required step loses those points, exactly as it would on the exam. Name what earned points and
   what's missing, and log the miss.
 
-A miss means stop and repair that node before moving on.
+A miss means stop and repair that node before moving on. On key nodes, a correct pick may still hide
+a wrong model — ask "why?" before counting it, and occasionally ask how sure they were
+(`tactics.md` explains both).
 
 ## Logging
 

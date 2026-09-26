@@ -8,7 +8,7 @@ topic that isn't solid — but now time is the constraint, and the target is poi
 Fill `## Exam intel` in `_course.md` first. Ask for what's missing; whatever nobody knows, write
 down as unknown and plan provisionally — don't let a missing past paper block practice:
 - Date, duration, format (classic / multiple choice / code on paper / mixed), open or closed book.
-- Exactly which topics are covered.
+- Exactly which topics are covered, and which of the course's sources the questions come from.
 - Past exams from this instructor, if they exist. They are the single best predictor.
 - Anything the instructor said in class ("this is important", "you'll see this again").
 
@@ -19,8 +19,9 @@ If past exams exist, read them and classify every question: type (define / compa
 ## 2. Triage
 
 For each covered topic: `Weight` × how shaky `Status` is (both in the topic map) plus its error-log
-hits. Spend time in that order. A solid topic gets one review round, not a re-teach. Tell the learner the plan in a
-small table: days left, what each day covers.
+hits. That's the priority order; a solid topic gets one review round, not a re-teach. **Offer** it as
+a short ranked list — the learner decides what to study and when. Only lay out a day-by-day schedule
+if they ask for one.
 
 ## 3. Practice like the exam
 

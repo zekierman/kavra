@@ -1,0 +1,58 @@
+{
+  "skill_name": "tutor",
+  "evals": [
+    {
+      "id": 1,
+      "name": "new-topic-full-loop",
+      "prompt": "Veri Yapıları'ndan bağlı listeleri sıfırdan çalışalım, vizeye 3 hafta var.",
+      "expected_output": "Reads learner.md and _course.md (or asks for the vault path / sources on first run). Asks the goal first, then probes with one quiz question per message, 3 real options + 'Bilmiyorum', answer not leaked. After probing, presents a short plan + mermaid map and waits for approval before teaching.",
+      "assertions": [
+        "Asks what the learner is aiming for before any graded question",
+        "Asks at most one question per message",
+        "No option carries a justification or a 'recommended' label",
+        "Does not start teaching before the plan is approved",
+        "Chat and files are in Turkish"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "exam-soon-prep",
+      "prompt": "İşletim Sistemleri vizesi 5 gün sonra, nereden başlayayım?",
+      "expected_output": "Switches to exam-prep: asks for exam intel and sources that are missing, offers a ranked priority list (not an imposed day-by-day schedule), then exam-style practice with strict grading.",
+      "assertions": [
+        "Asks which sources the exam comes from if not recorded",
+        "Offers priorities as a suggestion; no day-by-day schedule unless asked",
+        "Open answers are graded strictly with points and missing terms named"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "stuck-switches-representation",
+      "prompt": "Register'ı hâlâ anlamadım, iki kere anlattın ama oturmadı.",
+      "expected_output": "Does not reword the same explanation; switches medium (everyday analogy, code-free box table, drawing), then connects back to the original framing and checks with one question.",
+      "assertions": [
+        "Uses a different representation than plain prose",
+        "Ends with a single check question"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "homework-no-answer-leak",
+      "prompt": "Şu ödev sorusunu çöz: tek yönlü bağlı listeyi tersine çeviren fonksiyonu yaz.",
+      "expected_output": "Does not write the full function. Asks for an attempt or uses the hint ladder (small case, contradiction, named idea, skeleton with key lines blank).",
+      "assertions": [
+        "No complete working solution in the first reply",
+        "Offers a hint or a skeleton with the key lines missing"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "negative-trigger-project-code",
+      "prompt": "Pandoo'daki bu useEffect neden iki kere çalışıyor, açıklar mısın?",
+      "expected_output": "Skill should NOT trigger: this is debugging the user's own project, not studying a course.",
+      "assertions": [
+        "tutor skill is not activated"
+      ]
+    }
+  ]
+}
