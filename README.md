@@ -65,8 +65,8 @@ sorusunun cevabı hazır olur.
    python3 beyin.py doctor
    ```
 
-   Bu komut skill'i `.agents/skills/` ve `.claude/skills/` altına eşler ve takip eder. Elle
-   kopyalama yapma, beyin senkronunda çakışma çıkarır.
+   Bu komut skill'i `.agents/skills/` ve `.claude/skills/` altına eşler ve takip eder. Önerilen yol
+   budur. Elle kopyaladıysan iki taraf birebir aynı olsun, ardından `beyin.py skill-sync` çalıştır.
 3. Ajanını kasada aç, "ders çalışalım" de. kavra beyni tanır: dersleri projeler klasörüne koyar,
    beynin kimlik ve kurallar dosyalarını tercihlerin olarak okur, oturum sonunda aktif konular
    dosyasına tek satırlık bir ders durumu yazar (konu, sıradaki adım, bekleyen tekrar sayısı).
