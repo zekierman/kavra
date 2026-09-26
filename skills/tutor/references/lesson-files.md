@@ -35,12 +35,13 @@ sources:
 # Data Structures
 
 ## Topic map
-| Topic | Exam | Status | Last reviewed |
-| --- | --- | --- | --- |
-| [[linked-lists]] | Midterm | shaky | 2026-09-27 |
-| [[stacks]] | Midterm | not started | |
+| Topic | Exam | Weight | Status | Last reviewed |
+| --- | --- | --- | --- | --- |
+| [linked-lists](linked-lists.md) | Midterm | high | shaky | 2026-09-27 |
+| [stacks](stacks.md) | Midterm | medium | not started | |
 
-Status is one of: not started · shaky · solid · exam-ready.
+Status is one of: not started · shaky · solid · exam-ready. Weight (low / medium / high, or points)
+comes from exam intel. Use standard markdown links — Obsidian resolves them and so can every agent.
 
 ## Exam intel
 - Format: <classic / multiple choice / code on paper / mixed>, <duration>
@@ -51,6 +52,11 @@ Status is one of: not started · shaky · solid · exam-ready.
 | Date | Topic | Mistake | Type |
 | --- | --- | --- | --- |
 Types: gap (didn't know) · misconception (knew it wrong) · misread · careless · time.
+
+## Review queue
+| Topic | Prompt | Next | Step |
+| --- | --- | --- | --- |
+| linked-lists | What exactly does `p = p->next` change? | 2026-09-28 | 0 |
 ```
 
 ## `<topic>.md`
@@ -67,9 +73,9 @@ sources: [slides week 3 p.4-22]
 ## Map
 ```mermaid
 graph TD
-  A[A pointer stores an address] --> B[A node = data + next]
-  B --> C[Traversal]
-  C --> D[Append]
+  A["A pointer stores an address"] --> B["A node = data + next"]
+  B --> C["Traversal"]
+  C --> D["Append"]
   classDef done fill:#b7e4c7,stroke:#2d6a4f
   class A,B done
 ```
@@ -83,31 +89,25 @@ graph TD
 <lesson prose, as taught>
 
 **Q3.** <question>
-- A) …
-- B) …
-- C) …
-- D) I don't know
-
-→ Answered B ✗. Correct: C. <feedback>
-
-## Review
-| Prompt | Next | Step |
-| --- | --- | --- |
-| What exactly does `p = p->next` change? | 2026-09-28 | 0 |
+- A) …  B) …  C) …  D) I don't know
+- → B ✗ · correct: C · <feedback>
 ````
 
-Mark finished map nodes by adding them to the `class … done` line — the learner sees progress fill in.
+Always quote mermaid labels (`B["A node = data + next"]`) — `=`, `()`, `<`, `->` break unquoted labels.
+Mark finished nodes by rewriting the single `class … done` line with the full list of done node ids —
+the learner sees progress fill in.
 
 ## Review schedule
 
-Review items are **recall prompts**, not facts: a question the learner answers from memory. Write 2–5
-per topic, aimed at the ideas the rest of the topic hangs on and at anything they missed.
+Review items live in **one queue per course**, `## Review queue` in `_course.md`, so a single read
+shows everything due. They are **recall prompts**, not facts: a question the learner answers from
+memory. Write 2–5 per topic, aimed at the ideas the rest of the topic hangs on and at anything they
+missed.
 
-Intervals by `Step`: 0 → +1 day, 1 → +3, 2 → +7, 3 → +14, 4 → +30, then done (drop the row, or keep
-it at +60 if an exam is still ahead).
+Intervals by `Step`: 0 → +1 day, 1 → +3, 2 → +7, 3 → +14, 4 → +30, then `Step` = done and `Next`
+empty (keep the row as a record; revive it at +60 if an exam is still ahead).
 
 - Recalled correctly → `Step` +1, `Next` = today + interval of the new step.
 - Missed → `Step` = 0, `Next` = tomorrow, and log it in `_course.md` → Error log.
 
-A review is **due** when `Next` ≤ today. At session start, check every lesson file's `## Review`
-table in the course.
+A review is **due** when `Next` ≤ today.

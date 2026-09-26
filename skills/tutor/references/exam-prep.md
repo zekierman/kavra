@@ -17,7 +17,8 @@ If past exams exist, read them and classify every question: type (define / compa
 
 ## 2. Triage
 
-For each covered topic: exam weight × how shaky it is (from the topic map and error log). Spend time
+For each covered topic: `Weight` × how shaky `Status` is (both in the topic map) plus its error-log
+hits. Spend time
 in that order. A solid topic gets one review round, not a re-teach. Tell the learner the plan in a
 small table: days left, what each day covers.
 

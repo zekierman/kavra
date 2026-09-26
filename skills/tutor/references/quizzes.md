@@ -33,7 +33,9 @@ is noise that hides a gap.
   automatically, so use up to 3 real options + "I don't know". Use `multiSelect: true` only when the
   question says "select all that apply". Put the question stem in `question`, keep `header` short
   (e.g. "Q3"). No option descriptions that hint at correctness.
-- **Environments without a question tool (Codex, Antigravity, plain chat)** — write the question with
+- **Any other agent with a native question/choice tool** (e.g. Antigravity's `ask_question`) — use it
+  the same way: 3 real options + "I don't know", no recommendation tags, correct position randomized.
+- **Environments without a question tool (Codex, plain chat)** — write the question with
   lettered options (A–C plus D = "I don't know"), then **end your turn and wait**. Never put the
   answer, a hint, or the feedback in the same message.
 - **Open-response questions** (explain, trace, write code, calculate) — ask in plain text and wait.
@@ -46,13 +48,14 @@ After they answer, in one short block:
 - *Why* it's correct, grounded in the nodes already established (and the course source, if any).
 - If wrong: what their choice reveals about their model — "B is what you'd say if you thought the
   pointer itself moves; it's the value inside it that changes." This is the valuable part.
-- For open answers: grade like the instructor would. Name what earns points and what's missing
-  (key term, a step, the definition's exact condition).
+- For open answers: grade strictly, like the instructor would — not like a friendly tutor. A vague
+  answer that "has the right idea" but misses the formal term, a condition of the definition, or a
+  required step loses those points, exactly as it would on the exam. Name what earned points and
+  what's missing, and log the miss.
 
 A miss means stop and repair that node before moving on.
 
 ## Logging
 
-Write the question into the lesson file **before** they answer (without the answer — they may be
-reading the file live), then append their answer and the feedback after grading. Format in
-`lesson-files.md`.
+After grading, append the question, their answer, and the feedback to the lesson file as one block
+(format in `lesson-files.md`). One write per question keeps edits simple.

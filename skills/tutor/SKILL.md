@@ -49,9 +49,10 @@ resumable and lets other agents (Claude Code, Codex, Antigravity…) continue ea
 lesson file is the handoff**. Never keep important state only in the chat.
 
 - `learner.md` — the learner's profile and settings. Find it first (search the workspace). If it
-  doesn't exist, ask where courses should live, then create it from `assets/learner.md`.
+  isn't there — e.g. you were started inside a code project — ask for the vault path before creating
+  anything; only if there is truly none, create it from `assets/learner.md`.
 - `<courses root>/<Course>/_course.md` — course index: instructor, sources, exam dates, topic map,
-  exam intel.
+  exam intel, error log, and the **review queue** for the whole course.
 - `<courses root>/<Course>/<topic>.md` — one lesson file per topic.
 
 Formats and templates: read `references/lesson-files.md` before creating or editing any of these.
@@ -63,8 +64,8 @@ is the classroom.
 ## Start of every session
 
 1. Read `learner.md`, then the course's `_course.md`.
-2. **Due reviews first.** Scan the course's lesson files for review items dated today or earlier
-   (see `references/lesson-files.md`). If any are due, offer to run them before new material — a
+2. **Due reviews first.** Check the `## Review queue` in `_course.md` for items dated today or
+   earlier. If any are due, offer to run them before new material — a
    short review now is worth more than a new topic, because forgetting is exponential and each
    successful recall resets the curve.
 3. If continuing a topic, read that lesson file's `## Frontier` and resume exactly there. Say in one
@@ -87,7 +88,8 @@ The exam is written from the course's own slides, notes, and past exams. So:
 - **Course material defines terms, notation, scope, and emphasis.** Use the instructor's definitions
   and notation even when a textbook phrases it differently — then, if it helps understanding, show the
   alternative framing and how they connect. Cite where it comes from (`slide 14, Week 3`) so the
-  learner can find it again.
+  learner can find it again. If you can't read a PDF/PPTX directly, extract its text once into
+  `<Course>/_sources/<file>.md` (keeping page/slide numbers) and work from that.
 - **Anything not in the course material is flagged as extra**, so the learner knows it's for
   understanding, not for the exam.
 - **Accuracy is non-negotiable.** The learner has to trust you completely; one confident
@@ -104,7 +106,12 @@ Run all three phases every time. Scale their size to the topic, never skip their
 
 Two separate unknowns:
 
-**1a. Where their knowledge ends — graded quizzes.** This is mapping, not a spot-check. For each
+**1a. What they're reaching for — open question. Ask this first**, because it decides which
+strands are worth probing. "Understand linked lists" can mean ten things.
+For a course, the default target is "can answer anything the instructor could ask about this topic",
+but check whether they need something narrower (a lab, one homework question, tomorrow's quiz).
+
+**1b. Where their knowledge ends — graded quizzes.** This is mapping, not a spot-check. For each
 strand the lesson depends on, find a **floor** (something they get right) and a **ceiling**
 (something they miss). The edge is between them.
 - All correct = questions too easy, not "done". Jump difficulty sharply until something breaks.
@@ -112,20 +119,16 @@ strand the lesson depends on, find a **floor** (something they get right) and a 
   Misconceptions matter most — a confidently held wrong model must be dislodged, not topped up.
 - Only probe strands the lesson actually rests on.
 
-**1b. What they're reaching for — open question.** "Understand linked lists" can mean ten things.
-For a course, the default target is "can answer anything the instructor could ask about this topic",
-but check whether they need something narrower (a lab, one homework question, tomorrow's quiz).
-
 Quiz mechanics and how to write options that don't leak the answer: `references/quizzes.md`. Read it
 before your first quiz of a session.
 
 ### Phase 2 — Plan (think hardest here)
 
-With their edge and goal known, reason out the best path for *this* topic to *this* person:
+With their goal and edge known, reason out the best path for *this* topic to *this* person:
 
 - What are the unconditional truths? Is there a clean universal statement or real definition to
   anchor on? (Check the course material's own definitions.)
-- Which do they already hold (from 1a)? Start there — not below, not above.
+- Which do they already hold (from 1b)? Start there — not below, not above.
 - What's the motivated path from those truths to the goal?
 - Which parts does the instructor emphasize (slides, past exams)? Those get the most depth.
 
@@ -165,7 +168,7 @@ definition and point out exactly what's missing.
 
 Always, even if the session stops mid-topic:
 - Update `## Frontier` in the lesson file: what's solid, what's shaky, the exact next step.
-- Add review items with dates (`references/lesson-files.md` has the schedule).
+- Add review items to the queue in `_course.md` (`references/lesson-files.md` has the schedule).
 - Add any exam-relevant insight to `_course.md`.
 - One-line summary to the learner: what landed, what's next, when the next review is.
 
