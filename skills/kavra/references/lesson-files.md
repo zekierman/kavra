@@ -12,6 +12,8 @@ formats — they are how a session started in one tool resumes in another.
   headings already in the file** — find a section by its role, never add a second section with the
   same role in another language or wording.
 - Keep the table columns as they are; other agents parse them.
+- Frontmatter holds only flat `key: value` fields. Lists and nested data go in body tables —
+  second-brain indexers and Obsidian's properties panel choke on nested YAML.
 - Get today's date from the system before any date math.
 
 ## Layout
@@ -35,18 +37,26 @@ Use the course name the learner uses. Topic files are named by topic, not by dat
 course: Data Structures
 code: CS201
 instructor: <name>
-exams:
-  - {name: Midterm, date: 2026-11-10, weight: 40}
-  - {name: Final, date: 2027-01-12, weight: 60}
-sources:            # set by the learner; listed in priority order (first wins a conflict)
-  - {type: slides, where: path/to/slides/, exam: yes}
-  - {type: book, where: "Weiss, Data Structures, ch. 3", exam: yes}
-  - {type: video, where: "https://youtube.com/playlist?list=…", exam: no, note: "no transcript; use my notes"}
-  - {type: notes, where: path/to/my-notes/, exam: yes}
-  - {type: past-exams, where: path/to/past-exams/, exam: yes}
 ---
 
 # Data Structures
+
+## Sources
+Set by the learner, in priority order — the first row wins a conflict.
+
+| # | Type | Where | Exam? | Note |
+| --- | --- | --- | --- | --- |
+| 1 | slides | path/to/slides/ | yes | |
+| 2 | book | Weiss, Data Structures, ch. 3 | yes | |
+| 3 | video | https://youtube.com/playlist?list=… | no | no transcript; use my notes |
+| 4 | notes | path/to/my-notes/ | yes | |
+| 5 | past-exams | path/to/past-exams/ | yes | |
+
+## Exams
+| Exam | Date | Weight |
+| --- | --- | --- |
+| Midterm | 2026-11-10 | 40% |
+| Final | 2027-01-12 | 60% |
 
 ## Topic map
 | Topic | Exam | Weight | Status | Last reviewed |
@@ -86,7 +96,7 @@ Types: gap (didn't know) · misconception (knew it wrong) · misread · careless
 ---
 course: Data Structures
 topic: Linked lists
-sources: [slides week 3 p.4-22, book ch. 3.2]
+sources: slides week 3 p.4-22; book ch. 3.2
 ---
 
 # Linked lists
@@ -142,6 +152,8 @@ Use these when `learner.md` says Turkish; for other languages, translate once an
 
 | Role | English | Türkçe |
 | --- | --- | --- |
+| sources | Sources | Kaynaklar |
+| exams | Exams | Sınavlar |
 | topic map | Topic map | Konu haritası |
 | exam intel | Exam intel | Sınav bilgisi |
 | error log | Error log | Hata günlüğü |

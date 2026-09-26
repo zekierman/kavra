@@ -59,7 +59,22 @@ are the handoff**; never keep important state only in the chat.
   course's **review queue**.
 - `<courses root>/<Course>/<topic>.md` — one lesson file per topic.
 
-Read `references/lesson-files.md` before creating or editing any of these — it has the templates and
+### Inside a second-brain vault
+
+If the vault runs a second-brain system — e.g. [Avenox Beyin](https://github.com/avenoxai/avenoxbeyin),
+recognizable by `.beyin-version` and a `🔮 850-Companion/` folder — work with it, not around it:
+- Put courses under its projects folder (e.g. `🏰 300-Projects/<school>/`) unless `learner.md` says
+  otherwise.
+- Read its companion identity and rules (`Core.md`, `Kurallar.md` or equivalents) as learner
+  preferences, alongside `learner.md`.
+- At the end of a study session, keep **one** study entry in its active threads file
+  (`Threads.md`) up to date — course, topic, next step, due-review count with the date you counted
+  it, link to the lesson file. Edit only that entry; never rewrite the file, and keep it to 2–3
+  lines (these files are injected at session start and have size limits).
+- Respect its settings: if memory is paused, set to manual, or a folder is excluded, don't write.
+- Don't duplicate its daily logs; the brain records sessions on its own.
+
+Read `references/lesson-files.md` before creating or editing any course file — it has the templates and
 the rules that keep multiple agents from corrupting them. Write lesson files as you teach: the learner
 reads them in Obsidian (rendered markdown, mermaid, LaTeX) while the chat carries the conversation.
 
@@ -103,6 +118,7 @@ Record the answers in `_course.md`. Then:
 | Reviews due / "quiz me" | **Review** — mixed recall round across topics, update the queue |
 | Learner is copying/reading material and stuck on a page | **Support** — explain that page, fill gaps the source skipped, then 2–3 check questions |
 | Quick "what is X" inside a study session | **Quick explain** — one foundation, one motivated step, one check question |
+| "kavra kontrol" / is my study setup OK? | **Check** — read-only health report, `references/doctor.md` |
 
 ## Learn: probe → plan → teach
 

@@ -29,27 +29,58 @@ yüksek not** ve **sınavdan sonra da kalan gerçek kavrayış**. Claude Code, C
 
 ## Kurulum
 
-Skill, `skills/kavra/` klasörüdür. Ajanının skill aradığı yere kopyala. En iyisi Obsidian kasanın
-içine koymak: böylece yalnız ders çalışırken devreye girer.
+İki yol var. İkinci beyin kullanmıyorsan **A**, [Avenox Beyin](https://github.com/avenoxai/avenoxbeyin)
+kullanıyorsan ya da kurmak istiyorsan **B**.
 
-| Ajan | Kasa içinde (önerilen) | Global |
-| --- | --- | --- |
-| Claude Code | `.claude/skills/kavra/` | `~/.claude/skills/kavra/` |
-| Codex | `.agents/skills/kavra/` | `~/.agents/skills/kavra/` |
-| Antigravity | `.agents/skills/kavra/` | — (kasa içi kullan) |
+### A) Yalnız kavra
+
+Obsidian kasanın içine kopyala. Böylece sadece o kasada çalışırken devreye girer.
 
 ```bash
 git clone https://github.com/zekierman/kavra
 cd <obsidian-kasan>
 mkdir -p .claude/skills .agents/skills
-cp -r <klon>/skills/kavra .claude/skills/
+cp -r <klon>/skills/kavra .claude/skills/     # Claude Code
 cp -r <klon>/skills/kavra .agents/skills/     # Codex + Antigravity ortak
 ```
 
-Sonra ajanını kasanın içinde aç ve "Veri Yapıları'ndan bağlı listeyi çalışalım" de. İlk seferde
-derslerin nerede duracağını sorar ve `learner.md` profilini oluşturur: nasıl öğrendiğin, neyi
-sevmediğin, hangi dilde çalıştığın. Bu dosya senin; istediğin gibi düzenle, skill her oturumda onu
-okur ve varsayılanlarının önüne koyar.
+Windows PowerShell'de `cp -r` yerine `Copy-Item -Recurse`, `mkdir -p` yerine `mkdir` kullan.
+Bütün projelerinde açık olsun istersen global yollar: Claude Code `~/.claude/skills/`,
+Codex `~/.agents/skills/`.
+
+### B) Avenox Beyin ile: ikinci beyin + kavra
+
+Avenox Beyin kalıcı hafıza sağlar: oturumlar arası süreklilik, günlük loglar, bilgi tabanı.
+kavra bunun üstünde ders çalışır. Birlikte kullanınca herhangi bir ajanda "dün nerede kalmıştık?"
+sorusunun cevabı hazır olur.
+
+1. Avenox Beyin'i **resmî kurulumuyla** kur: [avenox.lol/beyin.md](https://avenox.lol/beyin.md).
+   Ajanına bu adresi verip "oku ve kur" demen yeterli. Avenox yalnız resmî sürümün kullanılmasını
+   istiyor; bu repo onun kodunu içermez.
+2. kavra'yı beynin resmî skill içe aktarma komutuyla ekle (vault kökünde):
+
+   ```bash
+   git clone https://github.com/zekierman/kavra
+   python3 beyin.py skill-import --source <klon>/skills/kavra     # Windows: py -3 beyin.py ...
+   python3 beyin.py doctor
+   ```
+
+   Bu komut skill'i `.agents/skills/` ve `.claude/skills/` altına eşler ve takip eder. Elle
+   kopyalama yapma, beyin senkronunda çakışma çıkarır.
+3. Ajanını kasada aç, "ders çalışalım" de. kavra beyni tanır: dersleri projeler klasörüne koyar,
+   beynin kimlik ve kurallar dosyalarını tercihlerin olarak okur, oturum sonunda aktif konular
+   dosyasına tek satırlık bir ders durumu yazar (konu, sıradaki adım, bekleyen tekrar sayısı).
+   Beyin bu dosyayı oturum başında ajana verdiği için, hangi ajanda açarsan aç nerede kaldığın
+   görünür.
+
+> Eski (v2) Avenox kurulumlarında `beyin.py` yoktur. Onlarda A yolundaki gibi elle kopyala.
+
+### İlk çalıştırma
+
+"Veri Yapıları'ndan bağlı listeyi çalışalım" de. İlk seferde derslerin nerede duracağını ve
+neyden çalıştığını (slayt, kitap, video, not, çıkmış soru) sorar, `learner.md` profilini oluşturur.
+Profil senin: nasıl öğrendiğini, neyi sevmediğini yaz, kavra her oturumda onu okur.
+Kurulumu kontrol etmek için: "kavra kontrol".
 
 ## Kasanda nasıl görünür
 
@@ -64,6 +95,15 @@ Dersler/
 Terminal sınıf, Obsidian ders kitabı. Ders dosyasını terminalin yanında aç; harita, LaTeX ve
 ilerleme orada canlı dolar. Kasan senkronluysa tablette de okursun. Çalışma kağıdı istersen
 cevaplar katlanır kutularda gizli gelir, kalemle çözüp kendini kontrol edersin.
+
+## Sınırlar
+
+- Ajanlar video izleyemez. Video kaynağı için altyazı ya da kendi notların gerekir.
+- Ders dosyaları kilitli değildir. İki ajanı aynı anda aynı derste çalıştırma.
+- Beyin entegrasyonu, beynin ayarlarına uyar: hafıza kapalıysa ya da manuel moddaysa kavra oraya
+  yazmaz.
+- Erken sürüm. Hedef ajanlar Claude Code, Codex ve Antigravity; gerçek ders oturumlarıyla
+  deneniyor. Hata görürsen issue aç.
 
 ## Neden böyle?
 
@@ -96,6 +136,9 @@ Her kural bir araştırma bulgusuna dayanır:
   ([Google](https://blog.google/products-and-platforms/products/education/google-learnlm-gemini-generative-ai/))
 
 ## Teşekkür
+
+- İkinci beyin: [Avenox Beyin](https://github.com/avenoxai/avenoxbeyin) (MIT). kavra onun kodunu
+  içermez, resmî içe aktarma yoluyla üstüne eklenir.
 
 Öğretme ilkeleri ("önce koşulsuz doğrular", "bunu ben nasıl keşfederdim?", yokla → planla → öğret)
 [amosblomqvist/learn](https://github.com/amosblomqvist/learn) projesinden uyarlandı. O proje `pi`
