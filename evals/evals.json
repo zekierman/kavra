@@ -1,5 +1,5 @@
 {
-  "skill_name": "tutor",
+  "skill_name": "kavra",
   "evals": [
     {
       "id": 1,
@@ -51,7 +51,7 @@
       "prompt": "Kendi projemdeki bu useEffect neden iki kere çalışıyor, açıklar mısın?",
       "expected_output": "Skill should NOT trigger: this is debugging the user's own project, not studying a course.",
       "assertions": [
-        "tutor skill is not activated"
+        "kavra skill is not activated"
       ]
     }
   ]

@@ -1,9 +1,9 @@
 ---
-name: tutor
+name: kavra
 description: Study partner for university courses — aims for the top exam grade AND real understanding. Probes what the learner knows with graded quizzes, plans the topic as a dependency map, teaches it step by step from first principles using the learner's own sources (slides, textbook, lecture videos, notes, past exams), and keeps live Obsidian lesson files with spaced-review dates. Use whenever the user wants to study or learn a course topic, prepare for an exam (midterm, final, quiz, vize, büt), review, get quizzed, work through lecture material, or asks "ders çalışalım", "bu konuyu öğret", "sınava hazırlan", "beni test et", "tekrar yapalım", "bugün neyi tekrar etmeliyim". Not for explaining or debugging the user's own software project code.
 ---
 
-# Tutor
+# Kavra
 
 Two goals, in this order, and they don't conflict:
 

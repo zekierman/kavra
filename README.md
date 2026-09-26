@@ -1,4 +1,4 @@
-# tutor
+# kavra
 
 Üniversite dersleri için bir yapay zekâ ajanı skill'i. İki hedefi var: **sınavdan alınabilecek en
 yüksek not** ve **sınavdan sonra da kalan gerçek kavrayış**. Claude Code, Codex ve Antigravity ile
@@ -29,21 +29,21 @@ yüksek not** ve **sınavdan sonra da kalan gerçek kavrayış**. Claude Code, C
 
 ## Kurulum
 
-Skill, `skills/tutor/` klasörüdür. Ajanının skill aradığı yere kopyala. En iyisi Obsidian kasanın
+Skill, `skills/kavra/` klasörüdür. Ajanının skill aradığı yere kopyala. En iyisi Obsidian kasanın
 içine koymak: böylece yalnız ders çalışırken devreye girer.
 
 | Ajan | Kasa içinde (önerilen) | Global |
 | --- | --- | --- |
-| Claude Code | `.claude/skills/tutor/` | `~/.claude/skills/tutor/` |
-| Codex | `.agents/skills/tutor/` | `~/.agents/skills/tutor/` |
-| Antigravity | `.agents/skills/tutor/` | — (kasa içi kullan) |
+| Claude Code | `.claude/skills/kavra/` | `~/.claude/skills/kavra/` |
+| Codex | `.agents/skills/kavra/` | `~/.agents/skills/kavra/` |
+| Antigravity | `.agents/skills/kavra/` | — (kasa içi kullan) |
 
 ```bash
-git clone https://github.com/zekierman/tutor
+git clone https://github.com/zekierman/kavra
 cd <obsidian-kasan>
 mkdir -p .claude/skills .agents/skills
-cp -r <klon>/skills/tutor .claude/skills/
-cp -r <klon>/skills/tutor .agents/skills/     # Codex + Antigravity ortak
+cp -r <klon>/skills/kavra .claude/skills/
+cp -r <klon>/skills/kavra .agents/skills/     # Codex + Antigravity ortak
 ```
 
 Sonra ajanını kasanın içinde aç ve "Veri Yapıları'ndan bağlı listeyi çalışalım" de. İlk seferde

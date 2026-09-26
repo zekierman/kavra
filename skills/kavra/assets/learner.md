@@ -6,7 +6,7 @@ courses_root: <kasada ders klasörlerinin durduğu yer>
 
 # Öğrenci profili
 
-tutor her oturumun başında bu dosyayı okur ve varsayılanlarının önüne koyar. Dosya senin,
+kavra her oturumun başında bu dosyayı okur ve varsayılanlarının önüne koyar. Dosya senin,
 istediğin gibi düzenle.
 
 ## Nasıl öğreniyorum
