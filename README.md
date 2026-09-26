@@ -35,8 +35,8 @@ içine koymak: böylece yalnız ders çalışırken devreye girer.
 | Ajan | Kasa içinde (önerilen) | Global |
 | --- | --- | --- |
 | Claude Code | `.claude/skills/tutor/` | `~/.claude/skills/tutor/` |
-| Codex | `.agents/skills/tutor/` | `~/.codex/skills/tutor/` |
-| Antigravity | `.agents/skills/tutor/` | `~/.gemini/config/skills/tutor/` |
+| Codex | `.agents/skills/tutor/` | `~/.agents/skills/tutor/` |
+| Antigravity | `.agents/skills/tutor/` | — (kasa içi kullan) |
 
 ```bash
 git clone https://github.com/zekierman/tutor
@@ -70,7 +70,8 @@ cevaplar katlanır kutularda gizli gelir, kalemle çözüp kendini kontrol eders
 Her kural bir araştırma bulgusuna dayanır:
 
 - **Kendini test etmek ve tekrarı zamana yaymak**, incelenen on çalışma tekniği arasında en etkili
-  iki teknik çıktı. Altını çizmek ve tekrar okumak ise düşük etkili.
+  iki teknik çıktı. Skill bu yüzden kendi çalışma yönteminin yerine geçmez, üstüne test ve
+  tekrar ekler.
   ([Dunlosky vd., 2013](https://journals.sagepub.com/doi/abs/10.1177/1529100612453266))
 - **Cevabı veren yapay zekâ öğrenmeyi bozar.** Yaklaşık 1000 lise öğrencisiyle yapılan deneyde düz
   GPT-4 alıştırma puanlarını yükseltti ama yapay zekâ kaldırılınca öğrenciler daha kötü yaptı. Cevap

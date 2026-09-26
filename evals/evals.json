@@ -48,7 +48,7 @@
     {
       "id": 5,
       "name": "negative-trigger-project-code",
-      "prompt": "Pandoo'daki bu useEffect neden iki kere çalışıyor, açıklar mısın?",
+      "prompt": "Kendi projemdeki bu useEffect neden iki kere çalışıyor, açıklar mısın?",
       "expected_output": "Skill should NOT trigger: this is debugging the user's own project, not studying a course.",
       "assertions": [
         "tutor skill is not activated"

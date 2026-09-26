@@ -1,23 +1,24 @@
 ---
-name: <your name>
-language: <language to teach in, e.g. English / Türkçe>
-courses_root: <vault folder where course folders live>
+name: <adın>
+language: <hangi dilde çalışıyorsun, ör. Türkçe / English>
+courses_root: <kasada ders klasörlerinin durduğu yer>
 ---
 
-# Learner profile
+# Öğrenci profili
 
-The tutor reads this at the start of every session. Edit it freely — it's yours.
+tutor her oturumun başında bu dosyayı okur ve varsayılanlarının önüne koyar. Dosya senin,
+istediğin gibi düzenle.
 
-## How I learn best
-- <e.g. I need a picture before I get it>
-- <e.g. I copy the slides by hand first, then want to be quizzed>
+## Nasıl öğreniyorum
+- <ör. önce bir resim görmeden anlamıyorum>
+- <ör. önce slaytı deftere yazıyorum, sonra soru sorulmasını istiyorum>
 
-## Code
-- <e.g. give me a skeleton, I write the key lines myself>
+## Kod
+- <ör. iskelet ver, kilit satırları ben yazayım>
 
-## Don't
-- <e.g. no long intros; start with the answer>
+## Yapma
+- <ör. uzun giriş yapma, cevaba ilk cümlede başla>
 
-## Current semester
-| Course | Folder | Instructor | Next exam |
+## Bu dönem
+| Ders | Klasör | Hoca | Sıradaki sınav |
 | --- | --- | --- | --- |
