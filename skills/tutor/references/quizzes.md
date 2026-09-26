@@ -35,7 +35,8 @@ is noise that hides a gap.
   (e.g. "Q3"). No option descriptions that hint at correctness.
 - **Any other agent with a native question/choice tool** (e.g. Antigravity's `ask_question`) — use it
   the same way: 3 real options + "I don't know", no recommendation tags, correct position randomized.
-- **Environments without a question tool (Codex, plain chat)** — write the question with
+- **Codex, plain chat, or any choice tool that preselects an option** (a preselected option biases
+  the answer) — write the question with
   lettered options (A–C plus D = "I don't know"), then **end your turn and wait**. Never put the
   answer, a hint, or the feedback in the same message.
 - **Open-response questions** (explain, trace, write code, calculate) — ask in plain text and wait.

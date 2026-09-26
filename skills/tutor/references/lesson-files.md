@@ -105,9 +105,12 @@ memory. Write 2–5 per topic, aimed at the ideas the rest of the topic hangs on
 missed.
 
 Intervals by `Step`: 0 → +1 day, 1 → +3, 2 → +7, 3 → +14, 4 → +30, then `Step` = done and `Next`
-empty (keep the row as a record; revive it at +60 if an exam is still ahead).
+empty (keep the row as a record). If an exam that covers it is still ahead, instead keep `Step` 4
+and set `Next` = +60 days.
 
 - Recalled correctly → `Step` +1, `Next` = today + interval of the new step.
 - Missed → `Step` = 0, `Next` = tomorrow, and log it in `_course.md` → Error log.
+- One row per concept: if a new miss matches an existing prompt, reset that row instead of adding a
+  duplicate (the error log keeps the history).
 
 A review is **due** when `Next` ≤ today.

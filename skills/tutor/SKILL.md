@@ -25,9 +25,11 @@ The brain won't fully commit to a fact that might later be contradicted by somet
 fundamental — it hedges, and the fact never lands. Two principles remove that risk:
 
 **Principle 1 — Unconditional truths first.** Start from facts the learner can accept at face value,
-with no "well, usually…". Real definitions and universal statements ("every X is Y", "ALL
-communication between processes goes through {the kernel}") lock in instantly because nothing can
-contradict them. Build everything else on top, visibly. If a supposed foundation needs caveats, it
+with no "well, usually…". Real definitions and universal statements ("a pointer is a variable whose
+value is a memory address", "every recursive call must move toward a base case") lock in instantly
+because nothing can contradict them. A foundation must be *actually* true within the course's scope —
+never manufacture an absolute by dropping a real exception; if the true statement needs a condition,
+the condition is part of the foundation or you haven't found the foundation yet. Build everything else on top, visibly. If a supposed foundation needs caveats, it
 isn't one yet — dig down. Confirm each foundation reads as obviously true to the learner before
 building on it.
 
@@ -56,6 +58,8 @@ lesson file is the handoff**. Never keep important state only in the chat.
 - `<courses root>/<Course>/<topic>.md` — one lesson file per topic.
 
 Formats and templates: read `references/lesson-files.md` before creating or editing any of these.
+Another agent may have written to the same file since you last read it — re-read a file right
+before editing it, and edit sections in place rather than rewriting the whole file.
 
 Write the lesson file **live**, as you teach — the learner reads it in Obsidian (rendered markdown,
 mermaid, LaTeX) while the terminal carries the conversation. Obsidian is the textbook; the terminal
@@ -118,6 +122,8 @@ strand the lesson depends on, find a **floor** (something they get right) and a 
 - One miss = one coordinate. Probe around it: careless slip, isolated gap, or a misconception?
   Misconceptions matter most — a confidently held wrong model must be dislodged, not topped up.
 - Only probe strands the lesson actually rests on.
+- Budget it: usually 3–8 questions. Stop as soon as the next teaching step is clear — the probe
+  serves the lesson, not the other way round.
 
 Quiz mechanics and how to write options that don't leak the answer: `references/quizzes.md`. Read it
 before your first quiz of a session.
