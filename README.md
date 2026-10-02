@@ -1,5 +1,7 @@
 # kavra
 
+![kavra demo](docs/demo.gif)
+
 **An AI study partner for university courses.** It aims for two things: **the highest grade you
 can get on the exam** and **understanding that lasts after it.** Works with Claude Code, Codex and
 Antigravity, and uses your Obsidian vault as the textbook.

@@ -1,5 +1,7 @@
 # kavra
 
+![kavra demo](docs/demo.gif)
+
 Üniversite dersleri için bir yapay zekâ ajanı skill'i. İki hedefi var: **sınavdan alınabilecek en
 yüksek not** ve **sınavdan sonra da kalan gerçek kavrayış**. Claude Code, Codex ve Antigravity ile
 çalışır. Ders kitabı olarak Obsidian kasanı kullanır.
