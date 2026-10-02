@@ -1,0 +1,9 @@
+{
+  "name": "kavra",
+  "version": "1.0.0",
+  "description": "Study partner for university courses: aims for the top exam grade and real understanding. Probes, plans, teaches step by step from your own sources, keeps Obsidian lesson files with spaced review.",
+  "author": { "name": "Zeki Erman" },
+  "repository": "https://github.com/zekierman/kavra",
+  "license": "MIT",
+  "keywords": ["education", "study", "exam", "tutor", "obsidian", "spaced-repetition"]
+}
