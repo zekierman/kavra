@@ -1,14 +1,16 @@
 {
   "name": "kavra",
-  "owner": { "name": "Zeki Erman" },
+  "owner": {
+    "name": "Zeki Erman"
+  },
   "metadata": {
-    "description": "kavra: an AI study partner for university courses."
+    "description": "kavra: üniversite dersleri için yapay zekâ çalışma arkadaşı."
   },
   "plugins": [
     {
       "name": "kavra",
       "source": "./",
-      "description": "Study partner for university courses: top grade and real understanding."
+      "description": "Üniversite dersleri için çalışma arkadaşı: en yüksek not ve kalıcı kavrayış."
     }
   ]
 }

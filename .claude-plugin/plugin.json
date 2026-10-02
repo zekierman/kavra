@@ -1,9 +1,18 @@
 {
   "name": "kavra",
   "version": "1.0.0",
-  "description": "Study partner for university courses: aims for the top exam grade and real understanding. Probes, plans, teaches step by step from your own sources, keeps Obsidian lesson files with spaced review.",
-  "author": { "name": "Zeki Erman" },
+  "description": "Üniversite dersleri için yapay zekâ çalışma arkadaşı: en yüksek not ve kalıcı kavrayış. Yoklar, harita çıkarır, kendi kaynaklarından adım adım öğretir, Obsidian'da aralıklı tekrarla ders dosyası tutar.",
+  "author": {
+    "name": "Zeki Erman"
+  },
   "repository": "https://github.com/zekierman/kavra",
   "license": "MIT",
-  "keywords": ["education", "study", "exam", "tutor", "obsidian", "spaced-repetition"]
+  "keywords": [
+    "education",
+    "study",
+    "exam",
+    "tutor",
+    "obsidian",
+    "spaced-repetition"
+  ]
 }
